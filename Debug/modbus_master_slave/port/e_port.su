@@ -1,0 +1,2 @@
+e_port.c:31:6:EnterCriticalSection	8	static
+e_port.c:36:6:ExitCriticalSection	8	static

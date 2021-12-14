@@ -1,0 +1,4 @@
+portevent.c:35:1:xMBPortEventInit	16	static,ignoring_inline_asm
+portevent.c:45:1:xMBPortEventPost	16	static
+portevent.c:52:1:xMBPortEventPostFromISR	24	static
+portevent.c:63:1:xMBPortEventGet	32	static

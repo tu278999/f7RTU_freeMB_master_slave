@@ -1,0 +1,8 @@
+mbfuncholding_m.c:98:1:eMBMasterReqWriteHoldingRegister	32	static
+mbfuncholding_m.c:122:1:eMBMasterFuncWriteHoldingRegister	24	static
+mbfuncholding_m.c:167:1:eMBMasterReqWriteMultipleHoldingRegister	32	static
+mbfuncholding_m.c:203:1:eMBMasterFuncWriteMultipleHoldingRegister	32	static
+mbfuncholding_m.c:266:1:eMBMasterReqReadHoldingRegister	32	static
+mbfuncholding_m.c:290:1:eMBMasterFuncReadHoldingRegister	32	static
+mbfuncholding_m.c:358:1:eMBMasterReqReadWriteMultipleHoldingRegister	32	static
+mbfuncholding_m.c:396:1:eMBMasterFuncReadWriteMultipleHoldingRegister	32	static

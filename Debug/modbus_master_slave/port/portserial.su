@@ -1,0 +1,5 @@
+portserial.c:48:1:vMBPortSerialEnable	16	static
+portserial.c:68:1:xMBPortSerialInit	16	static
+portserial.c:83:1:xMBPortSerialPutByte	16	static
+portserial.c:94:1:xMBPortSerialGetByte	16	static
+portserial.c:109:6:USART3_IRQHandler	16	static

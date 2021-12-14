@@ -1,0 +1,2 @@
+mbfuncinput_m.c:71:1:eMBMasterReqReadInputRegister	32	static
+mbfuncinput_m.c:95:1:eMBMasterFuncReadInputRegister	32	static
