@@ -23,6 +23,7 @@
 #include "mb.h"
 #include "mbport.h"
 #include "mbrtu.h"
+#include"main.h"
 
 #if MB_MASTER_RTU_ENABLED > 0
 /* ----------------------- define---------------------------------*/
@@ -68,17 +69,18 @@ void vMBMasterPortSerialEnable(BOOL xRxEnable, BOOL xTxEnable)
 	  */
 	  if (xRxEnable) {
 	    __HAL_UART_ENABLE_IT(&huartmaster, UART_IT_RXNE);
-	    // PC2 <=> RE ........Receiver Output Enable (Low to enable)
+//	    HAL_GPIO_WritePin(RE_GPIO_Port, RE_Pin, GPIO_PIN_RESET);// PC10 <=> RE..Receiver Output Enable (Low to enable)
 	  } else {
 	    __HAL_UART_DISABLE_IT(&huartmaster, UART_IT_RXNE);
+//	    HAL_GPIO_WritePin(RE_GPIO_Port, RE_Pin, GPIO_PIN_SET);
 	  }
 
 	  if (xTxEnable) {
 	    __HAL_UART_ENABLE_IT(&huartmaster, UART_IT_TXE);
-	  	  	  	 // PC3 <=> DE……….Driver Output Enable (high to enable)
-
+//	    HAL_GPIO_WritePin(DE_GPIO_Port, DE_Pin, GPIO_PIN_SET);// PC11 <=> DE……….Driver Output Enable (high to enable)
 	  } else {
 	    __HAL_UART_DISABLE_IT(&huartmaster, UART_IT_TXE);
+//	    HAL_GPIO_WritePin(DE_GPIO_Port, DE_Pin, GPIO_PIN_RESET);
 	  }
 
 }

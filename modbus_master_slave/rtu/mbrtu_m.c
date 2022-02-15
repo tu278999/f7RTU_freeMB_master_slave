@@ -217,12 +217,12 @@ eMBMasterRTUSend( UCHAR ucSlaveAddress, const UCHAR * pucFrame, USHORT usLength 
         ucMasterRTUSndBuf[usMasterSndBufferCount++] = ( UCHAR )( usCRC16 & 0xFF );
         ucMasterRTUSndBuf[usMasterSndBufferCount++] = ( UCHAR )( usCRC16 >> 8 );
 
-        /*NOTE: the following instruction must be added when use RS485 module
+        /* NOTE: the following instruction must be added when use RS485 module
          * cause when MB Poll receive response frame, it lose the last byte which is
          * High byte CRC
          */
 		#if MB_RTU_MASTER_USE_RS485
-        ucRTUBuf[usSndBufferCount++] = ( UCHAR )( usCRC16 >> 8 );
+        ucMasterRTUSndBuf[usMasterSndBufferCount++] = ( UCHAR )( usCRC16 >> 8 );
 		#endif
         /* Activate the transmitter. */
         eSndState = STATE_M_TX_XMIT;
