@@ -52,9 +52,7 @@
  * \page ListIntroduction List Implementation
  * \ingroup FreeRTOSIntro
  */
-
 #include "FreeRTOS.h"
-
 #ifndef INC_FREERTOS_H
 	#error FreeRTOS.h must be included before list.h
 #endif

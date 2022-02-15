@@ -4,10 +4,10 @@ Core/Src/freertos.o: ../Core/Src/freertos.c \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1/portmacro.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h \
- ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h \
  ../Core/Inc/main.h ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal.h \
  ../Core/Inc/stm32f7xx_hal_conf.h \
@@ -50,13 +50,13 @@ Core/Src/freertos.o: ../Core/Src/freertos.c \
 
 ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h:
 
+../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:
+
 ../Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM7/r0p1/portmacro.h:
 
 ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h:
 
 ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h:
-
-../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:
 
 ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h:
 

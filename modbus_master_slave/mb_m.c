@@ -262,7 +262,6 @@ eMBMasterIsEstablished( void )
     }
 }
 
-
 eMBErrorCode
 eMBMasterPoll( void )
 {

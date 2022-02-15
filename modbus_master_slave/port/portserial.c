@@ -53,13 +53,17 @@ vMBPortSerialEnable( BOOL xRxEnable, BOOL xTxEnable )
   
   if (xRxEnable) {        
 	  SET_BIT((&huartslave)->Instance->CR1, ( USART_CR1_RXNEIE) );
+	  HAL_GPIO_WritePin(RE_GPIO_Port, RE_Pin, GPIO_PIN_RESET);// PC10 <=> RE..Receiver Output Enable (Low to enable)
   } else {    
 	 CLEAR_BIT((&huartslave)->Instance->CR1, ( USART_CR1_RXNEIE) );
+	 HAL_GPIO_WritePin(RE_GPIO_Port, RE_Pin, GPIO_PIN_SET);
   }
   if (xTxEnable) {
 	  SET_BIT((&huartslave)->Instance->CR1, USART_CR1_TXEIE);
+	  HAL_GPIO_WritePin(DE_GPIO_Port, DE_Pin, GPIO_PIN_SET);// PC11 <=> DE……….Driver Output Enable (high to enable)
   } else {
 	  CLEAR_BIT((&huartslave)->Instance->CR1, USART_CR1_TXEIE);
+	  HAL_GPIO_WritePin(DE_GPIO_Port, DE_Pin, GPIO_PIN_RESET);
   }  
   
 }
@@ -87,7 +91,6 @@ xMBPortSerialPutByte( CHAR ucByte )
   * called. */
 	huartslave.Instance->TDR = (uint8_t)(ucByte & 0xFFU);
 	return TRUE;
-  //return (HAL_OK == HAL_UART_Transmit(&huartslave, (uint8_t*)&ucByte, 1, 10));
 }
  
 BOOL
@@ -123,11 +126,7 @@ void USART2_IRQHandler(void)
 
 		  pxMBFrameCBByteReceived();	  //xMBRTUReceiveFSM() in mbrtu.c
 
-//		  __IO uint32_t tmpreg = 0x00U;
-//		  tmpreg = (&huartslave)->Instance->ISR;
-//		  tmpreg = (&huartslave)->Instance->RDR;
 		  SET_BIT((&huartslave)->Instance->RQR,  USART_RQR_RXFRQ );
-//		  (void) tmpreg;
 
 		return;
     }

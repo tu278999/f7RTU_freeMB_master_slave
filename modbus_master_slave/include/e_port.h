@@ -41,7 +41,7 @@ extern UART_HandleTypeDef 	huart2;
 extern UART_HandleTypeDef 	huart3;
 
 #define SLAVE_USE_UART3		USE
-#define MASTER_USE_UART2	USE
+#define MASTER_USE_UART2	NOTUSE
 #define huartslave			huart3
 #define huartmaster			huart2
 
@@ -55,16 +55,13 @@ extern UART_HandleTypeDef 	huart3;
 #define MB_RTU_SLAVE_USE_RS485	NOTUSE
 
 
-//#define huartmaster			huart2	// use UART2 for modbus RTU Master
-
-
 #define ENTER_CRITICAL_SECTION()    EnterCriticalSection()
 #define EXIT_CRITICAL_SECTION()     ExitCriticalSection()
 
 typedef uint8_t BOOL;
 
 typedef unsigned char UCHAR;
-typedef char    CHAR;
+typedef char    		CHAR;
 
 typedef uint16_t USHORT;
 typedef int16_t SHORT;

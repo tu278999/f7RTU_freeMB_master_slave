@@ -3,6 +3,7 @@ modbus_master_slave/port/portevent_m.o: \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h \
  ../Core/Inc/FreeRTOSConfig.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h \
@@ -44,7 +45,6 @@ modbus_master_slave/port/portevent_m.o: \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_tim_ex.h \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_uart.h \
  ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_uart_ex.h \
- ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h \
  E:/OneDrive\ -\ Hanoi\ University\ of\ Science\ and\ Technology/Document_TuBK/MODBUS/modbus_workspaceNEW/f7RTU_freeMB_master_slave/modbus_master_slave/include/mbconfig.h \
  E:/OneDrive\ -\ Hanoi\ University\ of\ Science\ and\ Technology/Document_TuBK/MODBUS/modbus_workspaceNEW/f7RTU_freeMB_master_slave/modbus_master_slave/include/mb.h \
@@ -60,6 +60,8 @@ modbus_master_slave/port/portevent_m.o: \
 ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:
 
 ../Core/Inc/FreeRTOSConfig.h:
+
+../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:
 
 ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h:
 
@@ -142,8 +144,6 @@ E:/OneDrive\ -\ Hanoi\ University\ of\ Science\ and\ Technology/Document_TuBK/MO
 ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_uart.h:
 
 ../Drivers/STM32F7xx_HAL_Driver/Inc/stm32f7xx_hal_uart_ex.h:
-
-../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:
 
 ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h:
 

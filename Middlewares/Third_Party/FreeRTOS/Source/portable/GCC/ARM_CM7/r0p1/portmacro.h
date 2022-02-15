@@ -32,7 +32,7 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
-
+#include "FreeRTOS.h"
 /*-----------------------------------------------------------
  * Port specific definitions.
  *

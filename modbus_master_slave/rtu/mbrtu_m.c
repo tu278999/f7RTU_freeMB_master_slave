@@ -189,7 +189,7 @@ eMBMasterRTUReceive( UCHAR * pucRcvAddress, UCHAR ** pucFrame, USHORT * pusLengt
 }
 
 eMBErrorCode
-eMBMasterRTUSend( UCHAR ucSlaveAddress, const UCHAR * pucFrame, USHORT usLength )			//peMBMasterFrameSendCur from modbus POLL
+eMBMasterRTUSend( UCHAR ucSlaveAddress, const UCHAR * pucFrame, USHORT usLength )//peMBMasterFrameSendCur from modbus POLL
 {
     eMBErrorCode    eStatus = MB_ENOERR;
     USHORT          usCRC16;
@@ -241,8 +241,6 @@ xMBMasterRTUReceiveFSM( void )				/* ISR handler*/
 {
     BOOL            xTaskNeedSwitch = FALSE;
     UCHAR           ucByte;
-
-    //RT_ASSERT(( eSndState == STATE_M_TX_IDLE ) || ( eSndState == STATE_M_TX_XFWR ));
 
     configASSERT(( eSndState == STATE_M_TX_IDLE ) || ( eSndState == STATE_M_TX_XFWR ));
 

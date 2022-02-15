@@ -36,8 +36,15 @@ TaskHandle_t MasterMonitorHandle = NULL;
 TaskHandle_t MasterPollHandle = NULL;
 TaskHandle_t SlavePollHandle = NULL;
 TaskHandle_t LedTaskHandle = NULL;
+TaskHandle_t testfloat_handle;
 
+union SwapData{
+	USHORT ushort[2];
+	float xfloat;
+};
 
+void TestFloat_task (void *p);
+void  vMBUpdateRegister(float *pfloat, uint16_t Nfloat, uint16_t RegAdd);
 
 void vInitMBTask(void){
 	BaseType_t status;
@@ -60,8 +67,51 @@ void vInitMBTask(void){
 	status = xTaskCreate(led_task, "LED task", 200, NULL, 2, &LedTaskHandle);
 	configASSERT(status == pdPASS);
 
+	status = xTaskCreate(TestFloat_task, "TestFloat Task", 600, NULL, 2, &testfloat_handle );
+	configASSERT(status == pdPASS);
+
 //	vTaskStartScheduler();
 
+}
+
+void TestFloat_task (void *p)
+{
+	float fValue[5] = {0};
+
+	while(1)
+	{
+		fValue[0] = 0.1;
+		fValue[1] = 0.2;
+		fValue[2] = 3.3;
+		fValue[3] = 2.2;
+		fValue[4] = 1.1;
+		vMBUpdateRegister(fValue, 5, 0);
+		vTaskDelay(1000);
+
+
+	}
+}
+
+void  vMBUpdateRegister(float *pfloat, uint16_t Nfloat, uint16_t RegAdd){
+
+	//	USHORT countReg;
+	//	USHORT indexReg = RegAdd;
+	int i = 0;
+	union SwapData VarData;
+	/*
+	 * todo
+	 * add invalid Register address function (check by if esle)
+	 */
+	USHORT *usUpdateReg = usSRegInBuf;
+	for(i = 0; i < Nfloat; i++ )
+	{
+		VarData.xfloat = pfloat[i];
+		usUpdateReg[RegAdd++] = VarData.ushort[0];	//low word (16 bit)
+		usUpdateReg[RegAdd++] = VarData.ushort[1];	//high word
+
+	}
+
+	return ;
 }
 
 void mastermonitor_task(void*p){
@@ -109,25 +159,28 @@ void masterpoll_task(void*p){
 	while(1)
 	{
 		eMBMasterPoll();
+
 	}
 
 }
 
 void slavepoll_task(void*p){
 
-	  usSRegInBuf[0] = 0x11;
-	  usSRegInBuf[1] = 0x22;
-	  usSRegInBuf[2] = 0x33;
-	  usSRegInBuf[3] = 0x44;
+//	  usSRegInBuf[0] = 0x11;
+//	  usSRegInBuf[1] = 0x22;
+//	  usSRegInBuf[2] = 0x33;
+//	  usSRegInBuf[3] = 0x44;
 	  usSRegHoldBuf[0] = 0x1111;
 	  usSRegHoldBuf[1] = 0x2222;
 	  ucSDiscInBuf[0] = 0xAA;
-	  ucSCoilBuf[0] = 0xf1;
+	  ucSCoilBuf[0] = 0xf4;
 	eMBInit(MB_RTU, 1, 9, 115200, MB_PAR_NONE);
 	eMBEnable();
 	HAL_Delay(2);
 	while(1){
+
 		eMBPoll();
+
 	}
 
 }
@@ -138,6 +191,20 @@ void led_task(void*p){
 		HAL_GPIO_TogglePin(LD3_GPIO_Port, LD3_Pin);
 		//HAL_GPIO_WritePin(GreenLed_GPIO_Port, GreenLed_Pin, GPIO_PIN_SET);
 		vTaskDelay(500);
+//		if((ucSCoilBuf[0] & 0x02) == 0x02)
+//		{
+//			HAL_GPIO_WritePin(LD1_GPIO_Port, LD1_Pin,GPIO_PIN_SET);
+//			ucSCoilBuf[0] |= 0x04;
+//		}
+//		if((ucSCoilBuf[0] & 0x02) == 0x00)
+//		{
+//			HAL_GPIO_WritePin(LD1_GPIO_Port, LD1_Pin,GPIO_PIN_RESET);
+//			ucSCoilBuf[0] &= ~0x04;
+//		}
+//		ucSCoilBuf[] = 1;
+//		vTaskDelay(500);
+//		ucSCoilBuf[13] = 0;
+
 	}
 
 }

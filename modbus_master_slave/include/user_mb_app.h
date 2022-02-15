@@ -9,13 +9,13 @@
 
 /* -----------------------Slave Defines -------------------------------------*/
 #define S_DISCRETE_INPUT_START                    0
-#define S_DISCRETE_INPUT_NDISCRETES               8//16
+#define S_DISCRETE_INPUT_NDISCRETES               16//16
 
 #define S_COIL_START                              0
-#define S_COIL_NCOILS                             8//64
+#define S_COIL_NCOILS                             17//64
 
 #define S_REG_INPUT_START                         0
-#define S_REG_INPUT_NREGS                         16//100
+#define S_REG_INPUT_NREGS                         100//100
 
 #define S_REG_HOLDING_START                       0		//sever has to read in this field if client write in to it
 #define S_REG_HOLDING_NREGS                       16//100
@@ -40,7 +40,7 @@
 #define M_COIL_NCOILS                             16
 
 #define M_REG_INPUT_START                         0
-#define M_REG_INPUT_NREGS                         8
+#define M_REG_INPUT_NREGS                         100
 
 #define M_REG_HOLDING_START                       0
 #define M_REG_HOLDING_NREGS                       8

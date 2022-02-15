@@ -33,6 +33,7 @@ modbus_master_slave/port/porttimer_m.o: \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h \
  ../Core/Inc/FreeRTOSConfig.h \
+ ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/deprecated_definitions.h \
@@ -41,7 +42,6 @@ modbus_master_slave/port/porttimer_m.o: \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h \
  E:/OneDrive\ -\ Hanoi\ University\ of\ Science\ and\ Technology/Document_TuBK/MODBUS/modbus_workspaceNEW/f7RTU_freeMB_master_slave/modbus_master_slave/include/e_port.h \
- ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h \
  ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h \
  E:/OneDrive\ -\ Hanoi\ University\ of\ Science\ and\ Technology/Document_TuBK/MODBUS/modbus_workspaceNEW/f7RTU_freeMB_master_slave/modbus_master_slave/include/mbconfig.h \
  E:/OneDrive\ -\ Hanoi\ University\ of\ Science\ and\ Technology/Document_TuBK/MODBUS/modbus_workspaceNEW/f7RTU_freeMB_master_slave/modbus_master_slave/include/mb.h \
@@ -120,6 +120,8 @@ modbus_master_slave/port/porttimer_m.o: \
 
 ../Core/Inc/FreeRTOSConfig.h:
 
+../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:
+
 ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h:
 
 ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h:
@@ -135,8 +137,6 @@ modbus_master_slave/port/porttimer_m.o: \
 ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h:
 
 E:/OneDrive\ -\ Hanoi\ University\ of\ Science\ and\ Technology/Document_TuBK/MODBUS/modbus_workspaceNEW/f7RTU_freeMB_master_slave/modbus_master_slave/include/e_port.h:
-
-../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h:
 
 ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h:
 
