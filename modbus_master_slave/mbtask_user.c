@@ -56,7 +56,6 @@ void vInitMBTask(void){
 	configASSERT(status == pdPASS);
 }
 
-
 USHORT usModbusUserData[10];
 UCHAR  ucModbusUserData[10];
 
