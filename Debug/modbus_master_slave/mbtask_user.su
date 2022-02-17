@@ -1,5 +1,5 @@
-mbtask_user.c:39:6:vInitMBTask	32	static,ignoring_inline_asm
-mbtask_user.c:68:6:mastermonitor_task	32	static
-mbtask_user.c:104:6:masterpoll_task	16	static
-mbtask_user.c:119:6:slavepoll_task	24	static
-mbtask_user.c:142:6:led_task	16	static
+mbtask_user.c:39:6:vInitMBTask	40	static,ignoring_inline_asm
+mbtask_user.c:64:6:mastermonitor_task	32	static
+mbtask_user.c:100:6:masterpoll_task	16	static
+mbtask_user.c:115:6:slavepoll_task	24	static
+mbtask_user.c:138:6:led_task	16	static

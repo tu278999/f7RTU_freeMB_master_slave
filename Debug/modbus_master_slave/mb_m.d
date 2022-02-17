@@ -53,7 +53,7 @@ modbus_master_slave/mb_m.o: ../modbus_master_slave/mb_m.c \
  E:/OneDrive\ -\ Hanoi\ University\ of\ Science\ and\ Technology/Document_TuBK/MODBUS/modbus_workspaceNEW/f7RTU_freeMB_master_slave/modbus_master_slave/include/mbfunc.h \
  E:/OneDrive\ -\ Hanoi\ University\ of\ Science\ and\ Technology/Document_TuBK/MODBUS/modbus_workspaceNEW/f7RTU_freeMB_master_slave/modbus_master_slave/include/mbport.h \
  E:/OneDrive\ -\ Hanoi\ University\ of\ Science\ and\ Technology/Document_TuBK/MODBUS/modbus_workspaceNEW/f7RTU_freeMB_master_slave/modbus_master_slave/include/mbproto.h \
- E:/OneDrive\ -\ Hanoi\ University\ of\ Science\ and\ Technology/Document_TuBK/MODBUS/modbus_workspaceNEW/f7RTU_freeMB_master_slave/modbus_master_slave/include/mbtcp.h
+ E:/OneDrive\ -\ Hanoi\ University\ of\ Science\ and\ Technology/Document_TuBK/MODBUS/modbus_workspaceNEW/f7RTU_freeMB_master_slave/modbus_master_slave/include/mbrtu.h
 
 E:/OneDrive\ -\ Hanoi\ University\ of\ Science\ and\ Technology/Document_TuBK/MODBUS/modbus_workspaceNEW/f7RTU_freeMB_master_slave/modbus_master_slave/include/mb_m.h:
 
@@ -163,4 +163,4 @@ E:/OneDrive\ -\ Hanoi\ University\ of\ Science\ and\ Technology/Document_TuBK/MO
 
 E:/OneDrive\ -\ Hanoi\ University\ of\ Science\ and\ Technology/Document_TuBK/MODBUS/modbus_workspaceNEW/f7RTU_freeMB_master_slave/modbus_master_slave/include/mbproto.h:
 
-E:/OneDrive\ -\ Hanoi\ University\ of\ Science\ and\ Technology/Document_TuBK/MODBUS/modbus_workspaceNEW/f7RTU_freeMB_master_slave/modbus_master_slave/include/mbtcp.h:
+E:/OneDrive\ -\ Hanoi\ University\ of\ Science\ and\ Technology/Document_TuBK/MODBUS/modbus_workspaceNEW/f7RTU_freeMB_master_slave/modbus_master_slave/include/mbrtu.h:

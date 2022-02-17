@@ -53,17 +53,17 @@ vMBPortSerialEnable( BOOL xRxEnable, BOOL xTxEnable )
   
   if (xRxEnable) {        
 	  SET_BIT((&huartslave)->Instance->CR1, ( USART_CR1_RXNEIE) );
-	  HAL_GPIO_WritePin(RE_GPIO_Port, RE_Pin, GPIO_PIN_RESET);// PC10 <=> RE..Receiver Output Enable (Low to enable)
+//	  HAL_GPIO_WritePin(RE_GPIO_Port, RE_Pin, GPIO_PIN_RESET);// PB10 <=> RE..Receiver Output Enable (Low to enable)
   } else {    
 	 CLEAR_BIT((&huartslave)->Instance->CR1, ( USART_CR1_RXNEIE) );
-	 HAL_GPIO_WritePin(RE_GPIO_Port, RE_Pin, GPIO_PIN_SET);
+//	 HAL_GPIO_WritePin(RE_GPIO_Port, RE_Pin, GPIO_PIN_SET);
   }
   if (xTxEnable) {
 	  SET_BIT((&huartslave)->Instance->CR1, USART_CR1_TXEIE);
-	  HAL_GPIO_WritePin(DE_GPIO_Port, DE_Pin, GPIO_PIN_SET);// PC11 <=> DE……….Driver Output Enable (high to enable)
+//	  HAL_GPIO_WritePin(DE_GPIO_Port, DE_Pin, GPIO_PIN_SET);// PB11 <=> DE……….Driver Output Enable (high to enable)
   } else {
 	  CLEAR_BIT((&huartslave)->Instance->CR1, USART_CR1_TXEIE);
-	  HAL_GPIO_WritePin(DE_GPIO_Port, DE_Pin, GPIO_PIN_RESET);
+//	  HAL_GPIO_WritePin(DE_GPIO_Port, DE_Pin, GPIO_PIN_RESET);
   }  
   
 }

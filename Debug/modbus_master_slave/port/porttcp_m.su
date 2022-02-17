@@ -1,4 +1,0 @@
-porttcp_m.c:59:1:xMBMasterTCPPortInit	40	static,ignoring_inline_asm
-porttcp_m.c:74:13:prvvMBMasterNetconnTask	56	static
-porttcp_m.c:237:13:prvvMBMasterTCPCloseConn	16	static
-porttcp_m.c:243:21:prvxMBMasterTCPSendMBAP	40	static

@@ -45,17 +45,13 @@ void vInitMBTask(void){
 #endif
 
 #if MB_MASTER_RTU_ENABLED
-
-
 	status = xTaskCreate(masterpoll_task, "master poll task", 600, NULL, osPriorityNormal1, &MasterPollHandle);
 	configASSERT(status == pdPASS);
 #endif
 
 #if MB_SLAVE_RTU_ENABLED
-
 	status = xTaskCreate(slavepoll_task, "slave poll task", 600, NULL, osPriorityNormal, &SlavePollHandle);
 	configASSERT(status == pdPASS);
-
 #endif
 
 	status = xTaskCreate(led_task, "LED task", 200, NULL, osPriorityNormal, &LedTaskHandle);
@@ -90,7 +86,7 @@ void mastermonitor_task(void*p){
 		     	//ghi vào 4 thanh ghi đầu tiên của slave modbus  (function code = 10)
 		     	errorCode = eMBMasterReqWriteMultipleHoldingRegister(1,0,2,usModbusUserData,portMAX_DELAY);
 
-		     	vTaskDelay(2000);
+		     	vTaskDelay(500);
         if (errorCode != MB_MRE_NO_ERR) {
         	/*
         	 * if it have any error, we can do somthing here...

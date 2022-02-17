@@ -41,7 +41,7 @@ extern UART_HandleTypeDef 	huart2;
 extern UART_HandleTypeDef 	huart3;
 
 #define SLAVE_USE_UART3		USE
-#define MASTER_USE_UART2	NOTUSE
+#define MASTER_USE_UART2	USE
 #define huartslave			huart3
 #define huartmaster			huart2
 
@@ -51,8 +51,8 @@ extern UART_HandleTypeDef 	huart3;
  * cause when MB Poll receive response frame, it lose the last byte which is
  * High byte CRC
  */
-#define MB_RTU_MASTER_USE_RS485	NOTUSE
-#define MB_RTU_SLAVE_USE_RS485	USE
+#define MB_RTU_MASTER_USE_RS485	USE
+#define MB_RTU_SLAVE_USE_RS485	NOTUSE
 
 
 #define ENTER_CRITICAL_SECTION()    EnterCriticalSection()
