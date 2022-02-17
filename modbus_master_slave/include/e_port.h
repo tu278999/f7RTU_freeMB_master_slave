@@ -40,10 +40,10 @@
 extern UART_HandleTypeDef 	huart2;
 extern UART_HandleTypeDef 	huart3;
 
-#define SLAVE_USE_UART3		NOTUSE
+#define SLAVE_USE_UART3		USE
 #define MASTER_USE_UART2	NOTUSE
-#define huartslave			huart2
-#define huartmaster			huart3
+#define huartslave			huart3
+#define huartmaster			huart2
 
 
 

@@ -28,7 +28,7 @@
 #include "mbport.h"
 
 
-#if MB_MASTER_RTU_ENABLED > 0 || MB_MASTER_ASCII_ENABLED > 0
+#if MB_MASTER_RTU_ENABLED > 0 || MB_MASTER_ASCII_ENABLED > 0 || MB_MASTER_TCP_ENABLED
 /* ----------------------- Defines ------------------------------------------*/
 
 
@@ -73,11 +73,17 @@ xMBMasterPortEventGet( eMBMasterEventType * eEvent )
 {
 	EventBits_t recEvent;
 	recEvent = xEventGroupWaitBits(	xMasterOsEvent,
-												   (EV_MASTER_READY 		 | //do i need to use
+												   (
+#if MB_MASTER_TCP_ENABLED
+					 	 	 	 	 	 	 	 	EV_MASTER_FRAME_SENT |
+													EV_MASTER_CLOSE_CONNECTION),
+#else
+													EV_MASTER_READY 		 | //do i need to use
 													EV_MASTER_FRAME_RECEIVED | // type casting
 													EV_MASTER_EXECUTE 		 |
 													EV_MASTER_FRAME_SENT 	 |
-													EV_MASTER_ERROR_PROCESS	 ),
+													EV_MASTER_ERROR_PROCESS),
+#endif
 									pdTRUE, //clear on exit
 									pdFALSE,//wait for any bits
 									portMAX_DELAY);
@@ -240,6 +246,10 @@ eMBMasterReqErrCode eMBMasterWaitRequestFinish( void ) {
     recvedEvent = xEventGroupWaitBits(	xMasterOsEvent,
 											   (EV_MASTER_PROCESS_SUCESS 		| //do i need to use
 												EV_MASTER_ERROR_RESPOND_TIMEOUT | // type casting
+#if MB_MASTER_TCP_ENABLED
+												EV_MASTER_ERROR_SEND_DATA		|
+												EV_MASTER_ERROR_CONNECTION		|
+#endif
 												EV_MASTER_ERROR_RECEIVE_DATA 	|
 												EV_MASTER_ERROR_EXECUTE_FUNCTION),
 									pdTRUE, //clear on exit
@@ -265,6 +275,18 @@ eMBMasterReqErrCode eMBMasterWaitRequestFinish( void ) {
 					eErrStatus = MB_MRE_EXE_FUN;
 					break;
 			}
+#if MB_MASTER_TCP_ENABLED
+			case EV_MASTER_ERROR_SEND_DATA:
+			{
+					eErrStatus = MB_MRE_SEND_DATA;
+					break;
+			}
+			case EV_MASTER_ERROR_CONNECTION:
+			{
+				eErrStatus = MB_MRE_CONNECTION;
+				break;
+			}
+#endif
     }
     return eErrStatus;
 

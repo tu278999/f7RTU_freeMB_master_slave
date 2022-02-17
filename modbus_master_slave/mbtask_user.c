@@ -9,12 +9,14 @@
 #include "main.h"
 
 /*freertos include */
+#include "cmsis_os2.h"
 #include "FreeRTOS.h"
 #include "task.h"
 #include "e_port.h"
 #include "mb.h"
 #include "mb_m.h"
 #include "user_mb_app.h"
+#include "mbtcp.h"
 
 extern USHORT   usSRegInStart;
 extern USHORT   usSRegInBuf[S_REG_INPUT_NREGS];
@@ -37,22 +39,26 @@ TaskHandle_t LedTaskHandle = NULL;
 void vInitMBTask(void){
 	BaseType_t status;
 
-#if MB_MASTER_RTU_ENABLED
-	status = xTaskCreate(mastermonitor_task, "master monitor task", 600, NULL, 2, &MasterMonitorHandle);
+#if MB_MASTER_RTU_ENABLED || MB_MASTER_TCP_ENABLED
+	status = xTaskCreate(mastermonitor_task, "master monitor task", 600, NULL, osPriorityNormal, &MasterMonitorHandle);
 	configASSERT(status == pdPASS);
+#endif
 
-	status = xTaskCreate(masterpoll_task, "master poll task", 600, NULL, 3, &MasterPollHandle);
+#if MB_MASTER_RTU_ENABLED
+
+
+	status = xTaskCreate(masterpoll_task, "master poll task", 600, NULL, osPriorityNormal1, &MasterPollHandle);
 	configASSERT(status == pdPASS);
 #endif
 
 #if MB_SLAVE_RTU_ENABLED
 
-	status = xTaskCreate(slavepoll_task, "slave poll task", 600, NULL, 2, &SlavePollHandle);
+	status = xTaskCreate(slavepoll_task, "slave poll task", 600, NULL, osPriorityNormal, &SlavePollHandle);
 	configASSERT(status == pdPASS);
 
 #endif
 
-	status = xTaskCreate(led_task, "LED task", 200, NULL, 2, &LedTaskHandle);
+	status = xTaskCreate(led_task, "LED task", 200, NULL, osPriorityNormal, &LedTaskHandle);
 	configASSERT(status == pdPASS);
 }
 
@@ -60,6 +66,10 @@ USHORT usModbusUserData[10];
 UCHAR  ucModbusUserData[10];
 
 void mastermonitor_task(void*p){
+
+#if MB_MASTER_TCP_ENABLED
+	eMBMasterTCPDoInit(502);
+#endif
     eMBMasterReqErrCode    errorCode = MB_MRE_NO_ERR;
     usModbusUserData[0] = 0x1000;
     usModbusUserData[1] = 0x1111;

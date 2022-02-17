@@ -56,6 +56,7 @@
 /* USER CODE END 0 */
 
 /* External variables --------------------------------------------------------*/
+extern ETH_HandleTypeDef heth;
 extern TIM_HandleTypeDef htim6;
 extern TIM_HandleTypeDef htim7;
 extern UART_HandleTypeDef huart2;
@@ -170,11 +171,11 @@ void DebugMon_Handler(void)
 //void USART2_IRQHandler(void)
 //{
 //  /* USER CODE BEGIN USART2_IRQn 0 */
-////
+//////
 //  /* USER CODE END USART2_IRQn 0 */
 //  HAL_UART_IRQHandler(&huart2);
 //  /* USER CODE BEGIN USART2_IRQn 1 */
-////
+//////
 //  /* USER CODE END USART2_IRQn 1 */
 //}
 
@@ -184,11 +185,11 @@ void DebugMon_Handler(void)
 //void USART3_IRQHandler(void)
 //{
 //  /* USER CODE BEGIN USART3_IRQn 0 */
-////
+//////
 //  /* USER CODE END USART3_IRQn 0 */
 //  HAL_UART_IRQHandler(&huart3);
 //  /* USER CODE BEGIN USART3_IRQn 1 */
-////
+//////
 //  /* USER CODE END USART3_IRQn 1 */
 //}
 
@@ -206,33 +207,47 @@ void TIM8_UP_TIM13_IRQHandler(void)
   /* USER CODE END TIM8_UP_TIM13_IRQn 1 */
 }
 
-/**
-  * @brief This function handles TIM6 global interrupt, DAC1 and DAC2 underrun error interrupts.
-  */
+///**
+//  * @brief This function handles TIM6 global interrupt, DAC1 and DAC2 underrun error interrupts.
+//  */
 //void TIM6_DAC_IRQHandler(void)
 //{
 //  /* USER CODE BEGIN TIM6_DAC_IRQn 0 */
-////
+//////
 //  /* USER CODE END TIM6_DAC_IRQn 0 */
 //  HAL_TIM_IRQHandler(&htim6);
 //  /* USER CODE BEGIN TIM6_DAC_IRQn 1 */
-////
+//////
 //  /* USER CODE END TIM6_DAC_IRQn 1 */
 //}
 
 /**
   * @brief This function handles TIM7 global interrupt.
-//  */
-//void TIM7_IRQHandler(void)
-//{
-//  /* USER CODE BEGIN TIM7_IRQn 0 */
+  */
+void TIM7_IRQHandler(void)
+{
+  /* USER CODE BEGIN TIM7_IRQn 0 */
 ////
-//  /* USER CODE END TIM7_IRQn 0 */
-//  HAL_TIM_IRQHandler(&htim7);
-//  /* USER CODE BEGIN TIM7_IRQn 1 */
+  /* USER CODE END TIM7_IRQn 0 */
+  HAL_TIM_IRQHandler(&htim7);
+  /* USER CODE BEGIN TIM7_IRQn 1 */
 ////
-//  /* USER CODE END TIM7_IRQn 1 */
-//}
+  /* USER CODE END TIM7_IRQn 1 */
+}
+
+/**
+  * @brief This function handles Ethernet global interrupt.
+  */
+void ETH_IRQHandler(void)
+{
+  /* USER CODE BEGIN ETH_IRQn 0 */
+
+  /* USER CODE END ETH_IRQn 0 */
+  HAL_ETH_IRQHandler(&heth);
+  /* USER CODE BEGIN ETH_IRQn 1 */
+
+  /* USER CODE END ETH_IRQn 1 */
+}
 
 /* USER CODE BEGIN 1 */
 

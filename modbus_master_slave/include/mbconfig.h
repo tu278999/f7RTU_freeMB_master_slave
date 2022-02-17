@@ -50,9 +50,9 @@ PR_BEGIN_EXTERN_C
 /*! \brief If Modbus Master ASCII support is enabled. */
 #define MB_MASTER_ASCII_ENABLED                 (  0 )
 /*! \brief If Modbus Master RTU support is enabled. */
-#define MB_MASTER_RTU_ENABLED                   (  1 )
+#define MB_MASTER_RTU_ENABLED                   (  0 )
 /*! \brief If Modbus Master TCP support is enabled. */
-#define MB_MASTER_TCP_ENABLED                   (  0 )
+#define MB_MASTER_TCP_ENABLED                   (  1 )
 /*! \brief If Modbus Slave ASCII support is enabled. */
 #define MB_SLAVE_ASCII_ENABLED                  (  0 )
 /*! \brief If Modbus Slave RTU support is enabled. */
@@ -108,7 +108,7 @@ PR_BEGIN_EXTERN_C
     PR_END_EXTERN_C
 #endif
 
-#if MB_MASTER_RTU_ENABLED > 0 || MB_MASTER_ASCII_ENABLED > 0
+#if MB_MASTER_RTU_ENABLED > 0 || MB_MASTER_ASCII_ENABLED > 0 || MB_MASTER_TCP_ENABLED
 /*! \brief If master send a broadcast frame,the master will wait time of convert to delay,
  * then master can send other frame */
 #define MB_MASTER_DELAY_MS_CONVERT              (200 )

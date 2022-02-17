@@ -81,6 +81,10 @@ typedef enum
     MB_MRE_NO_ERR,                  /*!< no error. */
     MB_MRE_NO_REG,                  /*!< illegal register address. */
     MB_MRE_ILL_ARG,                 /*!< illegal argument. */
+#if MB_MASTER_TCP_ENABLED
+	MB_MRE_SEND_DATA,				/*!< send data error. */
+	MB_MRE_CONNECTION,				/*!< Connection error. */
+#endif
     MB_MRE_REV_DATA,                /*!< receive data error. */
     MB_MRE_TIMEDOUT,                /*!< timeout error occurred. */
     MB_MRE_MASTER_BUSY,             /*!< master is busy now. */

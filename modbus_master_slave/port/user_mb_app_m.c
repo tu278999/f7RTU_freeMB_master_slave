@@ -22,7 +22,7 @@
 #include "user_mb_app.h"
 
 /*-----------------------Master mode use these variables----------------------*/
-#if MB_MASTER_RTU_ENABLED > 0 || MB_MASTER_ASCII_ENABLED > 0
+#if MB_MASTER_RTU_ENABLED > 0 || MB_MASTER_ASCII_ENABLED > 0 || MB_MASTER_TCP_ENABLED
 
 //Master mode:DiscreteInputs variables
 USHORT   usMDiscInStart                             = M_DISCRETE_INPUT_START;

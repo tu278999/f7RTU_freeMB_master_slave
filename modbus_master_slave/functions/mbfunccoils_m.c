@@ -35,10 +35,12 @@
 /* ----------------------- Platform includes --------------------------------*/
 #include "e_port.h"
 #include "mb.h"
+#include "mbport.h"
 #include "mb_m.h"
 #include "mbconfig.h"
 #include "mbframe.h"
 #include "mbproto.h"
+#include "mbtcp.h"
 
 /* ----------------------- Defines ------------------------------------------*/
 #define MB_PDU_REQ_READ_ADDR_OFF            ( MB_PDU_DATA_OFF + 0 )
@@ -69,7 +71,7 @@
 eMBException    prveMBError2Exception( eMBErrorCode eErrorCode );
 
 /* ----------------------- Start implementation -----------------------------*/
-#if MB_MASTER_RTU_ENABLED > 0 || MB_MASTER_ASCII_ENABLED > 0
+#if MB_MASTER_RTU_ENABLED > 0 || MB_MASTER_ASCII_ENABLED > 0 ||MB_MASTER_TCP_ENABLED
 #if MB_FUNC_READ_COILS_ENABLED > 0
 
 /**

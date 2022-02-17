@@ -118,6 +118,9 @@ typedef enum
     MB_ENORES,                  /*!< insufficient resources. */
     MB_EIO,                     /*!< I/O error. */
     MB_EILLSTATE,               /*!< protocol stack in illegal state. */
+	MB_EPROTOCOL,				/*!<  */
+	MB_ESENDDATA,				/*!<  */
+	MB_ELOSTCONN,				/*!< LOST the connection in modbus tcp*/
     MB_ETIMEDOUT                /*!< timeout error occurred. */
 } eMBErrorCode;
 

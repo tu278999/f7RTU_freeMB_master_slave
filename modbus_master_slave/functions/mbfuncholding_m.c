@@ -39,7 +39,7 @@
 #include "mbconfig.h"
 #include "mbframe.h"
 #include "mbproto.h"
-
+#include "mbtcp.h"
 /* ----------------------- Defines ------------------------------------------*/
 #define MB_PDU_REQ_READ_ADDR_OFF                ( MB_PDU_DATA_OFF + 0 )
 #define MB_PDU_REQ_READ_REGCNT_OFF              ( MB_PDU_DATA_OFF + 2 )
@@ -81,7 +81,7 @@
 eMBException    prveMBError2Exception( eMBErrorCode eErrorCode );
 
 /* ----------------------- Start implementation -----------------------------*/
-#if MB_MASTER_RTU_ENABLED > 0 || MB_MASTER_ASCII_ENABLED > 0
+#if MB_MASTER_RTU_ENABLED > 0 || MB_MASTER_ASCII_ENABLED > 0 || MB_MASTER_TCP_ENABLED
 #if MB_FUNC_WRITE_HOLDING_ENABLED > 0
 
 /**

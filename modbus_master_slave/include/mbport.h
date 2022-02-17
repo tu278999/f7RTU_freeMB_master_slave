@@ -61,6 +61,11 @@ typedef enum
     EV_MASTER_ERROR_RESPOND_TIMEOUT    = 1<<6,  /*!< Request respond timeout. */
     EV_MASTER_ERROR_RECEIVE_DATA       = 1<<7,  /*!< Request receive data error. */
     EV_MASTER_ERROR_EXECUTE_FUNCTION   = 1<<8,  /*!< Request execute function error. */
+#if MB_MASTER_TCP_ENABLED
+	EV_MASTER_ERROR_SEND_DATA		   = 1<<9,  /*!< Request send data error. */
+	EV_MASTER_CLOSE_CONNECTION		   = 1<<10,
+	EV_MASTER_ERROR_CONNECTION		   = 1<<11,  /*!< error on connection that was established */
+#endif
 } eMBMasterEventType;
 
 typedef enum
@@ -150,6 +155,8 @@ void            vMBTCPPortDisable( void );
 //BOOL            xMBTCPPortSendResponse(struct netconn *newconn, const UCHAR *pucMBTCPFrame, USHORT usTCPLength );
 
 
+BOOL
+xMBMasterTCPPortInit( USHORT usTCPPort );
 
 
 
